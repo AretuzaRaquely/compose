@@ -14,9 +14,24 @@
     <h1>Hello, world!</h1>
 <?php
 
-echo 'OI';
+include('vendor/autoload.php');
+
+$client = new \GuzzleHttp\Client();
+//$response = $client->request('GET', 'https://g1.com.br');//
+
+//echo $response->getBody();//
+
+$faker = Faker\Factory::create('pt_BR');
+
+$nome = $faker->name();
+echo $nome;
+//echo $faker->name();//
+echo $nome . ' - '.$faker->cpf(). ' - '. $faker->email();
 
 ?>
+
+<img src="https://robohash.org/<?php echo $nome; ?>.png?set=set4" class="col-lg-4" alt="">
+<img src="https://robohash.org/STANLEY.png?set=set4" class="col-lg-4" alt="">
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
